@@ -1,7 +1,7 @@
 ---
 
 - name: Install sublime text 3
-  homebrew_cask: 
+  homebrew_cask:
     name: sublime-text3
     state: present
 
@@ -21,8 +21,13 @@
     url: "http://sublime.wbond.net/Package%20Control.sublime-package"
     dest: "~/Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package"
 
+- name: Download sublime-phpcs
+  get_url:
+    url: "https://github.com/benmatselby/sublime-phpcs"
+    dest: "~/Library/Application Support/Sublime Text 3/Installed Packages/Phpcs.sublime-package"
+
 - name: Get and update all sublime plugins
-  git: 
+  git:
     update: yes
     version: "{{item.version}}"
     repo: "{{item.repo}}"
@@ -30,7 +35,9 @@
   with_items: "{{ sublime_packages }}"
   when: sublime_packages
 
-#- name: Sublime config file
-#  template:
-#    src: config.j2
-#    dest: "~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+
+- name: Sublime-PHPCS config file
+  copy:
+    src: 'files/phpcs.sublime-settings'
+    dest: '~/Library/Application Support/Sublime Text 3/Packages/User/phpcs.sublime-settings'
+    force: no

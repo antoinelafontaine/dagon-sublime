@@ -1,0 +1,19 @@
+{
+  "extensions_to_blacklist":
+  [
+    "Test.php"
+  ],
+  "extensions_to_execute":
+  [
+    "php",
+    "inc",
+    "module"
+  ],
+  "phpcs_additional_args":
+  {
+    "--standard": "Drupal"
+  },
+  "phpcs_executable_path" : "/usr/local/bin/phpcs",
+  "phpcbf_executable_path" : "/usr/local/bin/phpcbf",
+  "php_cs_fixer_executable_path" : "/usr/local/bin/php-cs-fixer"
+}
