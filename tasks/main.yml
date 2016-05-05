@@ -21,11 +21,6 @@
     url: "http://sublime.wbond.net/Package%20Control.sublime-package"
     dest: "~/Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package"
 
-- name: Download sublime-phpcs
-  get_url:
-    url: "https://github.com/benmatselby/sublime-phpcs"
-    dest: "~/Library/Application Support/Sublime Text 3/Installed Packages/Phpcs.sublime-package"
-
 - name: Get and update all sublime plugins
   git:
     update: yes
@@ -34,10 +29,3 @@
     dest: "~/Library/Application Support/Sublime Text 3/Packages/{{item.dest}}"
   with_items: "{{ sublime_packages }}"
   when: sublime_packages
-
-
-- name: Sublime-PHPCS config file
-  copy:
-    src: 'files/phpcs.sublime-settings'
-    dest: '~/Library/Application Support/Sublime Text 3/Packages/User/phpcs.sublime-settings'
-    force: no
