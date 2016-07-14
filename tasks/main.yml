@@ -1,8 +1,8 @@
 ---
 
-- name: Install sublime text 3
+- name: Install Sublime text
   homebrew_cask:
-    name: sublime-text3
+    name: sublime-text
     state: present
 
 - name: Create directories
