@@ -28,4 +28,4 @@
     repo: "{{item.repo}}"
     dest: "~/Library/Application Support/Sublime Text 3/Packages/{{item.dest}}"
   with_items: "{{ sublime_packages }}"
-  when: sublime_packages
+  when: sublime_packages is defined
